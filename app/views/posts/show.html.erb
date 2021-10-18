@@ -1,0 +1,20 @@
+<div class="container-login100" style="background-image: url('/assets/bng.png');">
+  <div class="wrap-login1000 p-l-55 p-r-55 p-t-65 p-b-54" style="background-color: #e0dbdb;">
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %><br/>
+<strong><%= @post.title %></strong>
+<p><%=  @post.description%></p>
+
+  <h3>Comments</h3>
+
+    <%= form_for [@post, Comment.new] do |f| %>
+    <%= f.text_area :content, placeholder: "Add a comment" %><br/>
+    <%= f.submit "Add Comment" %>
+  <% end %>
+
+  <ul>
+     <%= render @post.comments %>
+  </ul>
+</div>
+</div>
